@@ -1,4 +1,4 @@
-from basic import get_config, table2html
+from utils.basic import get_config, table2html
 from bs4 import BeautifulSoup
 
 config = get_config()
@@ -20,4 +20,3 @@ class TableOperator:
             result += str(c)
             
         return result
-        

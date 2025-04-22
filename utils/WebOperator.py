@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-from basic import get_config, derive_data, validate_post
+from utils.basic import get_config, derive_data, validate_post
 from time import sleep
 
 config = get_config()
@@ -22,7 +22,7 @@ class Authenticate:
             print("Failed to login")
             raise Exception("Failed to login")
         else:
-            print("Successfully logged in")
+            # print("Successfully logged in")
             return response.cookies
 
 class Get:

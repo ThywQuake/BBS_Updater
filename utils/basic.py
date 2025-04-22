@@ -1,6 +1,5 @@
 import toml 
 import csv
-from io import StringIO
 import webbrowser
 import os
 import re
@@ -38,7 +37,7 @@ def derive_data(table, path):
     with open(path, "w") as f:
         f.write(csv_table)
     
-    return csv.reader(StringIO(csv_table))
+    return csv.reader(open(path, "r", encoding="utf-8"))
 
 def validate_post(data):
     # assert type(data) is dict, "data should be a dictionary"
