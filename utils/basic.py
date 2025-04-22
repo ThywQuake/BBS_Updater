@@ -14,7 +14,6 @@ def get_config():
         return None
     
 def derive_data(table, path):
-    print(table)
     thead = table.find("thead")
     th_texts = []
     for th in thead.find_all("th"):
