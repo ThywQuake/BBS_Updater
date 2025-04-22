@@ -31,9 +31,9 @@ class Get:
         self.headers = config["GET"]["headers"]
         self.cookies = Authenticate().login()
         self.headers["Cookie"] = "token=" + self.cookies.get_dict()['token']
+        self.soup = self._soup()
         
-    @property
-    def soup(self):
+    def _soup(self):
         response = requests.get(self.url, headers=self.headers)
         if response.status_code != 200:
             print("Failed to fetch the page")

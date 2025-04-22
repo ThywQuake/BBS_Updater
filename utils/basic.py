@@ -14,6 +14,7 @@ def get_config():
         return None
     
 def derive_data(table, path):
+    print(table)
     thead = table.find("thead")
     th_texts = []
     for th in thead.find_all("th"):
@@ -71,6 +72,8 @@ def table2html(table):
                 html += "<th style='{}'>{}</th>".format(style,cell)
             html += "</thead>"
         else:
+            if i == 1:
+                html += "<tbody>"
             for j, cell in enumerate(row):
                 if j == 0:
                     if cell == '':
@@ -78,7 +81,7 @@ def table2html(table):
                     html += "<tr style='{}'>".format(style)
                 html += "<td style='{}'>{}</td>".format(style,cell)
             html += "</tr>"
-    html += "<tbody>"
+    html += "</tbody>"  
 
     return html  
   

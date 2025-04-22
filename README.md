@@ -10,6 +10,7 @@ This is a project for updating the punishment database for chexie.net.
 3. Paste the file to the repository
 4. Run the following command:
 ```bash
-uv install -r requirements.txt
+uv venv
+uv sync
 uv run main.py
 ```

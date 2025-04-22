@@ -2,6 +2,9 @@ from utils.WebOperator import Get, Post
 from utils.TableOperator import TableOperator
 import os
 
+if not os.path.exists("temp"):
+    os.mkdir("temp")
+
 def main():
     get = Get()
     table1 = get.table1
