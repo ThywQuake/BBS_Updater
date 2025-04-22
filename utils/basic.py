@@ -60,6 +60,28 @@ def validate_post(data):
     
     path = os.path.abspath('temp/updated_post.html')
     webbrowser.open('file://' + path)
-    
+  
+def table2html(table):
+    style = get_config()['style']
+    html = "<table class='contenttable' style='{}'>".format(style)
+    html += '<caption style="-webkit-text-size-adjust: 100%"> <b><font face="宋体">本年度罚跑名单记录：</font></b> </caption>'
+    html += "<thead>"
+    for i,row in enumerate(table):
+        if i == 0:
+            for cell in row:
+                html += "<th style='{}'>{}</th>".format(style,cell)
+            html += "</thead>"
+        else:
+            for j, cell in enumerate(row):
+                if j == 0:
+                    if cell == '':
+                        continue
+                    html += "<tr style='{}'>".format(style)
+                html += "<td style='{}'>{}</td>".format(style,cell)
+            html += "</tr>"
+    html += "<tbody>"
+
+    return html  
+  
 if __name__ == '__main__':
     validate_post({'text':'test!'})

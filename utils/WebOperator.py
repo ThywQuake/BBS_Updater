@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 from basic import get_config, derive_data, validate_post
+from time import sleep
 
 config = get_config()
 
@@ -65,9 +66,10 @@ class Post:
         self.headers["Cookie"] = "token=" + self.cookies.get_dict()['token']
         
     def post(self, data):
-        print("Check twice! Is the data you want to post correctly?")
+        print("Check twice! Is the page you want to post correctly?")
+        sleep(2) # wait 2 second
         validate_post(data)
-        if input("Do you want to post the data? (y/N) ") in ['y', 'Y', 'yes', 'Yes']:
+        if input("Do you want to post the page? (y/N) ") in ['y', 'Y', 'yes', 'Yes']:
             print('Updating...')
         else:
             raise Exception('Update canceled.')
@@ -81,4 +83,4 @@ class Post:
     
 
 if __name__ == "__main__":
-    Post()
+    print(Get().table1, Get().table2)
