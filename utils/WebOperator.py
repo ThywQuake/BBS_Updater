@@ -67,7 +67,7 @@ class Post:
         
     def post(self, data):
         print("Check twice! Is the page you want to post correctly?")
-        sleep(2) # wait 2 second
+        sleep(1) # wait 1 second
         validate_post(data)
         if input("Do you want to post the page? (y/N) ") in ['y', 'Y', 'yes', 'Yes']:
             print('Updating...')
